@@ -1,0 +1,14 @@
+description = "rpc registry zookeeper"
+
+dependencies {
+    implementation project(":rpc-registry")
+    implementation project(":rpc-common")
+
+    implementation("org.apache.zookeeper:zookeeper")
+    implementation("com.101tec:zkclient")
+
+    // log implementation
+    implementation("org.slf4j:slf4j-api")
+    implementation("ch.qos.logback:logback-classic")
+    implementation("ch.qos.logback:logback-core")
+}

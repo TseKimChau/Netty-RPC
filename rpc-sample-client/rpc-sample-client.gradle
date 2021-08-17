@@ -1,0 +1,9 @@
+description = "rpc sample client"
+
+dependencies {
+    implementation project(":rpc-client")
+    implementation project(":rpc-sample-api")
+    implementation project(":rpc-registry-zookeeper")
+
+    implementation("org.springframework:spring-context")
+}

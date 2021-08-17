@@ -1,0 +1,16 @@
+description = "rpc server"
+
+dependencies {
+    implementation project(':rpc-common')
+    implementation project(':rpc-registry')
+
+    implementation("org.springframework:spring-context")
+    implementation("io.netty:netty-all")
+    testImplementation("org.springframework:spring-test")
+    implementation("org.apache.commons:commons-collections4")
+
+    // log implementation
+    implementation("org.slf4j:slf4j-api")
+    implementation("ch.qos.logback:logback-classic")
+    implementation("ch.qos.logback:logback-core")
+}

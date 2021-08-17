@@ -1,0 +1,68 @@
+plugins {
+    id "io.spring.dependency-management" version "1.0.10.RELEASE"
+}
+
+ext {
+    javaProjects = subprojects
+}
+
+// configure allproject
+configure(allprojects) { project ->
+    apply plugin: "io.spring.dependency-management"
+
+    dependencyManagement {
+        dependencies {
+            dependency 'io.netty:netty-all:4.1.54.Final'
+            dependency 'org.slf4j:slf4j-api:1.7.3'
+            dependency 'ch.qos.logback:logback-classic:1.2.3'
+            dependency 'ch.qos.logback:logback-core:1.2.3'
+            dependency 'org.springframework:spring-context:5.2.11.RELEASE'
+            dependency 'org.springframework:spring-test:5.2.11.RELEASE'
+            dependency 'io.protostuff:protostuff-core:1.7.2'
+            dependency 'io.protostuff:protostuff-runtime:1.7.2'
+            dependency 'org.apache.zookeeper:zookeeper:3.6.2'
+            dependency 'com.101tec:zkclient:0.11'
+            dependency 'com.alibaba.nacos:nacos-client:1.4.0'
+            dependency 'org.apache.commons:commons-collections4:4.4'
+            dependency 'org.apache.commons:commons-lang3:3.11'
+            dependency 'org.objenesis:objenesis:3.1'
+            dependency 'org.apache.httpcomponents:httpcore:4.4.13'
+            // dependency 'cglib:cglib:3.3.0'
+        }
+        resolutionStrategy {
+            cacheChangingModulesFor 0, "seconds"
+        }
+        repositories {
+            maven { url 'https://maven.aliyun.com/repository/public/' }
+            maven { url 'https://maven.aliyun.com/repository/spring/'}
+            mavenCentral()
+        }
+    }
+    configurations.all {
+        resolutionStrategy {
+            cacheChangingModulesFor 0, "seconds"
+            cacheDynamicVersionsFor 0, "seconds"
+        }
+    }
+    //  character encoding
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+    //  character encoding
+    tasks.withType(Javadoc) {
+        options.encoding = "UTF-8"
+    }
+}
+
+// configure subproject
+configure([rootProject] + javaProjects) { project ->
+    group = "com.kimchau"
+
+    apply plugin: "java"
+    // apply plugin: "java-test-fixtures"
+    // apply plugin: "checkstyle"
+
+    dependencies {
+        testImplementation("junit:junit:4.12")
+    }
+}

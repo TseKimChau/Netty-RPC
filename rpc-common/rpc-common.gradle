@@ -1,0 +1,11 @@
+description = "rpc common"
+
+dependencies {
+    implementation("io.protostuff:protostuff-core")
+    implementation("io.protostuff:protostuff-runtime")
+    implementation("org.objenesis:objenesis")
+    implementation("io.netty:netty-all")
+    implementation("org.apache.commons:commons-lang3")
+    implementation("org.apache.commons:commons-collections4")
+    implementation("org.apache.httpcomponents:httpcore")
+}

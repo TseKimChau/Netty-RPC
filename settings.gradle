@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url 'https://repo.spring.io/plugins-release' }
+    }
+}
+
+include 'rpc-client'
+include 'rpc-common'
+include 'rpc-server'
+include 'rpc-registry'
+include 'rpc-sample-api'
+include 'rpc-sample-client'
+include 'rpc-sample-server'
+include 'rpc-registry-nacos'
+include 'rpc-registry-zookeeper'
+
+rootProject.name = 'netty-rpc'
+// 迭代访问所有根目录下的子项目，设置自定义的构建脚本名称
+rootProject.children.each {project ->
+    project.buildFileName = "${project.name}.gradle"
+}
+

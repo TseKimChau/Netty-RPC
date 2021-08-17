@@ -1,0 +1,13 @@
+description = "rpc client"
+
+dependencies {
+    implementation project(':rpc-common')
+    implementation project(':rpc-registry')
+
+    implementation("io.netty:netty-all")
+
+    // log implementation
+    implementation("org.slf4j:slf4j-api")
+    implementation("ch.qos.logback:logback-classic")
+    implementation("ch.qos.logback:logback-core")
+}

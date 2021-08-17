@@ -1,0 +1,14 @@
+description = "rpc-registry-nacos"
+
+dependencies {
+    implementation project(":rpc-registry")
+    implementation project(":rpc-common")
+
+    implementation("com.alibaba.nacos:nacos-client")
+
+    // log implementation
+    implementation("org.slf4j:slf4j-api")
+    implementation("ch.qos.logback:logback-classic")
+    implementation("ch.qos.logback:logback-core")
+}
+
